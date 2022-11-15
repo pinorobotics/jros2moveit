@@ -1,0 +1,2 @@
+include 'jros2moveit'
+include 'jros2moveit.tests'

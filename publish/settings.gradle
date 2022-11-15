@@ -1,0 +1,4 @@
+// list of subprojects to publish to Sonatype repo
+
+include 'jros2moveit'
+project(':jros2moveit').projectDir = new File(rootDir, '../jros2moveit')
