@@ -46,8 +46,26 @@ import pinorobotics.ros2robotstate.Ros2RobotStateMonitor;
  * @author aeon_flux aeon_flux@eclipso.ch
  */
 @Order(2)
-public class JRosMoveItIntegrationTests
+public class JRos2MoveItIntegrationTests
         extends AbstractJRosMoveItIT<LookupTransformResultMessage, MoveGroupResultMessage> {
+
+    private static final String BASE_FRAME = "world";
+    private JRos2Client client;
+    private JRosMessagesTransformer transformer = new JRosMessagesTransformer();
+
+    @BeforeAll
+    public static void setupAll() {
+        XLogger.load("jros2moveit-test.properties");
+        XJson.setLimitDecimalPlaces(2);
+        XJson.setNegativeZero(false);
+    }
+
+    @Override
+    @BeforeEach
+    public void setup() {
+        client = new JRos2ClientFactory().createClient();
+        super.setup();
+    }
 
     @Override
     protected PoseMessage asPoseMessage(LookupTransformResultMessage transformMessage) {
@@ -81,24 +99,6 @@ public class JRosMoveItIntegrationTests
     protected JRosRvizTools createRVizTools(String baseFrame, String topicName) {
         return new JRos2RvizToolsFactory()
                 .createJRosRvizTools(client, BASE_FRAME, "/visualization_marker_array");
-    }
-
-    private static final String BASE_FRAME = "world";
-    private JRos2Client client;
-    private JRosMessagesTransformer transformer = new JRosMessagesTransformer();
-    //
-    @BeforeAll
-    public static void setupAll() {
-        XLogger.load("jros2moveit-test.properties");
-        XJson.setLimitDecimalPlaces(2);
-        XJson.setNegativeZero(false);
-    }
-
-    @Override
-    @BeforeEach
-    public void setup() {
-        client = new JRos2ClientFactory().createClient();
-        super.setup();
     }
 
     @Override

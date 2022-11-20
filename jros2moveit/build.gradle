@@ -22,16 +22,18 @@ eclipse.classpath.file {
 }
 
 dependencies {
-    implementation 'io.github.pinorobotics:jrosmoveit:2.0-SNAPSHOT'
-    implementation 'io.github.lambdaprime:jros2client:2.0-SNAPSHOT'
-    implementation 'io.github.lambdaprime:jrosmessages:2.0-SNAPSHOT'
-    implementation 'io.github.pinorobotics:jros2actionlib:2.0-SNAPSHOT'
+    def jrosmoveit = 'io.github.pinorobotics:jrosmoveit:2.0-SNAPSHOT'
+    def jros2client = 'io.github.lambdaprime:jros2client:2.0-SNAPSHOT'
+    def jros2actionlib = 'io.github.pinorobotics:jros2actionlib:2.0-SNAPSHOT'
+
+    implementation "${jrosmoveit}"
+    implementation "${jros2client}"
+    implementation "${jros2actionlib}"
 
     // transitively export following dependency to tests project
-    apiElements 'io.github.pinorobotics:jrosmoveit:2.0-SNAPSHOT'
-    apiElements 'io.github.lambdaprime:jros2client:2.0-SNAPSHOT'
-    apiElements 'io.github.lambdaprime:jrosmessages:2.0-SNAPSHOT'
-    apiElements 'io.github.pinorobotics:jros2actionlib:2.0-SNAPSHOT'
+    apiElements "${jrosmoveit}"
+    apiElements "${jros2client}"
+    apiElements "${jros2actionlib}"
 }
 
 jar { 

@@ -18,17 +18,12 @@
 package pinorobotics.jros2moveit.entities;
 
 import id.jros2messages.sensor_msgs.JointStateMessage;
-import pinorobotics.jros2moveit.moveit_msgs.RobotStateMessage;
 import pinorobotics.robotstate.RobotState;
 
 /**
  * @author aeon_flux aeon_flux@eclipso.ch
  */
 public class JRos2MoveItTransformers {
-
-    public RobotStateMessage toRobotStateMessage(RobotState state) {
-        throw new UnsupportedOperationException();
-    }
 
     public RobotState toRobotState(JointStateMessage jointMessage) {
         var ret = new RobotState();

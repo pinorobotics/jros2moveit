@@ -39,10 +39,7 @@ public class JRos2MoveItFactory {
     public JRos2MoveIt createMoveItClient(JRos2Client client, String groupName, RobotModel model) {
         var moveGroup =
                 new JRos2ActionClientFactory()
-                        .createClient(
-                                client,
-                                new MoveGroupActionDefinition(),
-                                JRosMoveItConstants.MOVE_GROUP_ACTION_NAME);
+                        .createClient(client, new MoveGroupActionDefinition(), "/move_action");
         var executeTrajectory =
                 new JRos2ActionClientFactory()
                         .createClient(
