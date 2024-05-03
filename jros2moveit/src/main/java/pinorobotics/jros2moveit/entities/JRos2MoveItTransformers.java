@@ -26,8 +26,6 @@ import pinorobotics.robotstate.RobotState;
 public class JRos2MoveItTransformers {
 
     public RobotState toRobotState(JointStateMessage jointMessage) {
-        var ret = new RobotState();
-        ret.setJointPositions(jointMessage.position);
-        return ret;
+        return new RobotState(jointMessage.position);
     }
 }
