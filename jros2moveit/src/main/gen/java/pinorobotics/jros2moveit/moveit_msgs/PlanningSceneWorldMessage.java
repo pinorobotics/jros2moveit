@@ -25,7 +25,9 @@ import java.util.Arrays;
 import java.util.Objects;
 
 /** Definition for moveit_msgs/PlanningSceneWorld */
-@MessageMetadata(name = PlanningSceneWorldMessage.NAME)
+@MessageMetadata(
+        name = PlanningSceneWorldMessage.NAME,
+        fields = {"collision_objects", "octomap"})
 public class PlanningSceneWorldMessage implements Message {
 
     static final String NAME = "moveit_msgs/PlanningSceneWorld";

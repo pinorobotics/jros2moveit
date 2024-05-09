@@ -28,7 +28,7 @@ import java.util.Objects;
  */
 @MessageMetadata(
         name = ExecuteTrajectoryActionMessage.NAME,
-        md5sum = "ea125ee188e659d7d34771c3ffb01ec5")
+        fields = {"action_goal", "action_result"})
 public class ExecuteTrajectoryActionMessage implements Message {
 
     static final String NAME = "moveit_msgs/ExecuteTrajectoryAction";

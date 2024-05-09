@@ -26,7 +26,9 @@ import java.util.Arrays;
 import java.util.Objects;
 
 /** Definition for moveit_msgs/AttachedCollisionObject */
-@MessageMetadata(name = AttachedCollisionObjectMessage.NAME)
+@MessageMetadata(
+        name = AttachedCollisionObjectMessage.NAME,
+        fields = {"link_name", "object", "touch_links", "detach_posture", "weight"})
 public class AttachedCollisionObjectMessage implements Message {
 
     static final String NAME = "moveit_msgs/AttachedCollisionObject";

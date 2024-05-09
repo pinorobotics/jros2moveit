@@ -26,10 +26,22 @@ import id.xfunction.XJson;
 import java.util.Objects;
 
 /**
- * Definition for moveit_msgs/OrientationConstraint This message contains the definition of an
- * orientation constraint.
+ * Definition for moveit_msgs/OrientationConstraint
+ *
+ * <p>This message contains the definition of an orientation constraint.
  */
-@MessageMetadata(name = OrientationConstraintMessage.NAME)
+@MessageMetadata(
+        name = OrientationConstraintMessage.NAME,
+        fields = {
+            "header",
+            "orientation",
+            "link_name",
+            "absolute_x_axis_tolerance",
+            "absolute_y_axis_tolerance",
+            "absolute_z_axis_tolerance",
+            "parameterization",
+            "weight"
+        })
 public class OrientationConstraintMessage implements Message {
 
     static final String NAME = "moveit_msgs/OrientationConstraint";
@@ -56,7 +68,10 @@ public class OrientationConstraintMessage implements Message {
     /** The robot link this constraint refers to */
     public StringMessage link_name = new StringMessage();
 
-    /** Tolerance on the three vector components of the orientation error (optional) */
+    /**
+     * Tolerance on the three vector components of the orientation error (optional) This is a +/-
+     * tolerance i.e. (+ x_axis_tol, - x_axis_tol)
+     */
     public double absolute_x_axis_tolerance;
 
     public double absolute_y_axis_tolerance;

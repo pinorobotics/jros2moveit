@@ -26,10 +26,30 @@ import java.util.Arrays;
 import java.util.Objects;
 
 /**
- * Definition for moveit_msgs/MotionPlanRequest This service contains the definition for a request
- * to the motion # planner and the output it provides
+ * Definition for moveit_msgs/MotionPlanRequest
+ *
+ * <p>This service contains the definition for a request to the motion planner and the output it
+ * provides
  */
-@MessageMetadata(name = MotionPlanRequestMessage.NAME, md5sum = "9544d5f3b9cf69a0e1e7f8c75d87f54b")
+@MessageMetadata(
+        name = MotionPlanRequestMessage.NAME,
+        fields = {
+            "workspace_parameters",
+            "start_state",
+            "goal_constraints",
+            "path_constraints",
+            "trajectory_constraints",
+            "reference_trajectories",
+            "pipeline_id",
+            "planner_id",
+            "group_name",
+            "num_planning_attempts",
+            "allowed_planning_time",
+            "max_velocity_scaling_factor",
+            "max_acceleration_scaling_factor",
+            "cartesian_speed_end_effector_link",
+            "max_cartesian_speed"
+        })
 public class MotionPlanRequestMessage implements Message {
 
     static final String NAME = "moveit_msgs/MotionPlanRequest";
@@ -98,8 +118,8 @@ public class MotionPlanRequestMessage implements Message {
     public double max_acceleration_scaling_factor;
 
     /**
-     * Maximum cartesian speed for the given end effector. If max_cartesian_speed less or equal to 0
-     * the trajectory is not modified. These fields require the following planning request adapter:
+     * Maximum cartesian speed for the given end effector. If max_cartesian_speed <= 0 the
+     * trajectory is not modified. These fields require the following planning request adapter:
      * default_planner_request_adapters/SetMaxCartesianEndEffectorSpeed
      */
     public StringMessage cartesian_speed_end_effector_link = new StringMessage();

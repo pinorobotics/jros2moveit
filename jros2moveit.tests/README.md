@@ -24,3 +24,4 @@ After that you need start TF2 Buffer Server:
 ros2 run tf2_ros buffer_server
 ```
 
+In RViz subscribe to "/visualization_marker_array".

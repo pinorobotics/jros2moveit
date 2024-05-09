@@ -30,6 +30,7 @@ import pinorobotics.jros2actionlib.actionlib_msgs.Action2GoalMessage;
  */
 @MessageMetadata(
         name = ExecuteTrajectoryActionGoalMessage.NAME,
+        fields = {"goal_id", "goal"},
         interfaceType = RosInterfaceType.ACTION)
 public class ExecuteTrajectoryActionGoalMessage
         implements Action2GoalMessage<ExecuteTrajectoryGoalMessage> {

@@ -24,7 +24,18 @@ import id.xfunction.XJson;
 import java.util.Objects;
 
 /** Definition for moveit_msgs/PlanningOptions */
-@MessageMetadata(name = PlanningOptionsMessage.NAME)
+@MessageMetadata(
+        name = PlanningOptionsMessage.NAME,
+        fields = {
+            "planning_scene_diff",
+            "plan_only",
+            "look_around",
+            "look_around_attempts",
+            "max_safe_execution_cost",
+            "replan",
+            "replan_attempts",
+            "replan_delay"
+        })
 public class PlanningOptionsMessage implements Message {
 
     static final String NAME = "moveit_msgs/PlanningOptions";
@@ -39,15 +50,15 @@ public class PlanningOptionsMessage implements Message {
     public boolean plan_only;
 
     /**
-     * If this flag is set to true, the action of planning and executing is allowed to look around
+     * If this flag is set to true, the action of planning & executing is allowed to look around
      * (move sensors) if it seems that not enough information is available about the environment
      */
     public boolean look_around;
 
     /**
-     * If this value is positive, the action of planning and executing is allowed to look around for
-     * a maximum number of attempts; If the value is left as 0, the default value is used, as set
-     * with dynamic_reconfigure
+     * If this value is positive, the action of planning & executing is allowed to look around for a
+     * maximum number of attempts; If the value is left as 0, the default value is used, as set with
+     * dynamic_reconfigure
      */
     public Int32Message look_around_attempts = new Int32Message();
 

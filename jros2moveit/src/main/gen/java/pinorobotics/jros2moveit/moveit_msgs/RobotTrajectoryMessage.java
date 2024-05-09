@@ -25,7 +25,9 @@ import id.xfunction.XJson;
 import java.util.Objects;
 
 /** Definition for moveit_msgs/RobotTrajectory */
-@MessageMetadata(name = RobotTrajectoryMessage.NAME)
+@MessageMetadata(
+        name = RobotTrajectoryMessage.NAME,
+        fields = {"joint_trajectory", "multi_dof_joint_trajectory"})
 public class RobotTrajectoryMessage implements Message {
 
     static final String NAME = "moveit_msgs/RobotTrajectory";

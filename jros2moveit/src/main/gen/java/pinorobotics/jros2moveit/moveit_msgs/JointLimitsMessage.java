@@ -23,11 +23,24 @@ import id.jrosmessages.std_msgs.StringMessage;
 import id.xfunction.XJson;
 import java.util.Objects;
 
-/** Definition for msg/JointLimits */
-@MessageMetadata(name = JointLimitsMessage.NAME)
+/** Definition for moveit_msgs/JointLimits */
+@MessageMetadata(
+        name = JointLimitsMessage.NAME,
+        fields = {
+            "joint_name",
+            "has_position_limits",
+            "min_position",
+            "max_position",
+            "has_velocity_limits",
+            "max_velocity",
+            "has_acceleration_limits",
+            "max_acceleration",
+            "has_jerk_limits",
+            "max_jerk"
+        })
 public class JointLimitsMessage implements Message {
 
-    static final String NAME = "msg/JointLimits";
+    static final String NAME = "moveit_msgs/JointLimits";
 
     /**
      * This message contains information about limits of a particular joint (or control dimension)

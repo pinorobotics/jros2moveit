@@ -24,11 +24,14 @@ import id.xfunction.XJson;
 import java.util.Objects;
 
 /**
- * Definition for moveit_msgs/GripperTranslation defines a translation for the gripper, used in
- * pickup or place tasks # for example for lifting an object off a table or approaching the table
- * for placing
+ * Definition for moveit_msgs/GripperTranslation
+ *
+ * <p>defines a translation for the gripper, used in pickup or place tasks for example for lifting
+ * an object off a table or approaching the table for placing
  */
-@MessageMetadata(name = GripperTranslationMessage.NAME)
+@MessageMetadata(
+        name = GripperTranslationMessage.NAME,
+        fields = {"direction", "desired_distance", "min_distance"})
 public class GripperTranslationMessage implements Message {
 
     static final String NAME = "moveit_msgs/GripperTranslation";

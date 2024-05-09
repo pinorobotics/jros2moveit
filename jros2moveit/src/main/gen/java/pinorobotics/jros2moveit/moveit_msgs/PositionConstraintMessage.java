@@ -26,10 +26,13 @@ import id.xfunction.XJson;
 import java.util.Objects;
 
 /**
- * Definition for moveit_msgs/PositionConstraint This message contains the definition of a position
- * constraint.
+ * Definition for moveit_msgs/PositionConstraint
+ *
+ * <p>This message contains the definition of a position constraint.
  */
-@MessageMetadata(name = PositionConstraintMessage.NAME)
+@MessageMetadata(
+        name = PositionConstraintMessage.NAME,
+        fields = {"header", "link_name", "target_point_offset", "constraint_region", "weight"})
 public class PositionConstraintMessage implements Message {
 
     static final String NAME = "moveit_msgs/PositionConstraint";

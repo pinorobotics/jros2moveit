@@ -27,7 +27,18 @@ import id.xfunction.XJson;
 import java.util.Objects;
 
 /** Definition for moveit_msgs/ContactInformation */
-@MessageMetadata(name = ContactInformationMessage.NAME)
+@MessageMetadata(
+        name = ContactInformationMessage.NAME,
+        fields = {
+            "header",
+            "position",
+            "normal",
+            "depth",
+            "contact_body_1",
+            "body_type_1",
+            "contact_body_2",
+            "body_type_2"
+        })
 public class ContactInformationMessage implements Message {
 
     static final String NAME = "moveit_msgs/ContactInformation";

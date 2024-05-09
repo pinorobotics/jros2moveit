@@ -27,14 +27,28 @@ import java.util.Arrays;
 import java.util.Objects;
 
 /**
- * Definition for moveit_msgs/Grasp This message contains a description of a grasp that would be
- * used with a particular end-effector to grasp an object, including how to approach it, grip it,
- * etc. This message does not contain any information about a "grasp point" (a position ON the
- * object). Whatever generates this message should have already combined information about grasp
- * points with information about the geometry of the end-effector to compute the grasp_pose in this
- * message.
+ * Definition for moveit_msgs/Grasp
+ *
+ * <p>This message contains a description of a grasp that would be used with a particular
+ * end-effector to grasp an object, including how to approach it, grip it, etc. This message does
+ * not contain any information about a "grasp point" (a position ON the object). Whatever generates
+ * this message should have already combined information about grasp points with information about
+ * the geometry of the end-effector to compute the grasp_pose in this message.
  */
-@MessageMetadata(name = GraspMessage.NAME, md5sum = "e26c8fb64f589c33c5d5e54bd7b5e4cb")
+@MessageMetadata(
+        name = GraspMessage.NAME,
+        fields = {
+            "id",
+            "pre_grasp_posture",
+            "grasp_posture",
+            "grasp_pose",
+            "grasp_quality",
+            "pre_grasp_approach",
+            "post_grasp_retreat",
+            "post_place_retreat",
+            "max_contact_force",
+            "allowed_touch_objects"
+        })
 public class GraspMessage implements Message {
 
     static final String NAME = "moveit_msgs/Grasp";
@@ -75,7 +89,7 @@ public class GraspMessage implements Message {
      */
     public GripperTranslationMessage post_place_retreat = new GripperTranslationMessage();
 
-    /** the maximum contact force to use while grasping (less or equal to 0 to disable) */
+    /** the maximum contact force to use while grasping (<=0 to disable) */
     public float max_contact_force;
 
     /**

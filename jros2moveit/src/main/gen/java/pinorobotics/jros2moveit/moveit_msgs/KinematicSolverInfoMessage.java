@@ -24,11 +24,13 @@ import id.xfunction.XJson;
 import java.util.Arrays;
 import java.util.Objects;
 
-/** Definition for msg/KinematicSolverInfo */
-@MessageMetadata(name = KinematicSolverInfoMessage.NAME)
+/** Definition for moveit_msgs/KinematicSolverInfo */
+@MessageMetadata(
+        name = KinematicSolverInfoMessage.NAME,
+        fields = {"joint_names", "limits", "link_names"})
 public class KinematicSolverInfoMessage implements Message {
 
-    static final String NAME = "msg/KinematicSolverInfo";
+    static final String NAME = "moveit_msgs/KinematicSolverInfo";
 
     /** A list of joints in the kinematic tree */
     public StringMessage[] joint_names = new StringMessage[0];

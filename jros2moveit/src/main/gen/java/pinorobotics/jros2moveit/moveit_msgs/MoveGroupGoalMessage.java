@@ -23,7 +23,9 @@ import id.xfunction.XJson;
 import java.util.Objects;
 
 /** Definition for moveit_msgs/MoveGroupGoal */
-@MessageMetadata(name = MoveGroupGoalMessage.NAME)
+@MessageMetadata(
+        name = MoveGroupGoalMessage.NAME,
+        fields = {"request", "planning_options"})
 public class MoveGroupGoalMessage implements Message {
 
     static final String NAME = "moveit_msgs/MoveGroupGoal";

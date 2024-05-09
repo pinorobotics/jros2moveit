@@ -31,6 +31,7 @@ import pinorobotics.jrosmoveit.moveit_msgs.ExecuteTrajectoryResultMessage;
  */
 @MessageMetadata(
         name = ExecuteTrajectoryActionResultMessage.NAME,
+        fields = {"status", "result"},
         interfaceType = RosInterfaceType.ACTION)
 public class ExecuteTrajectoryActionResultMessage
         implements Action2ResultMessage<ExecuteTrajectoryResultMessage> {

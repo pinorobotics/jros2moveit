@@ -31,7 +31,23 @@ import java.util.Arrays;
 import java.util.Objects;
 
 /** Definition for moveit_msgs/CollisionObject */
-@MessageMetadata(name = CollisionObjectMessage.NAME)
+@MessageMetadata(
+        name = CollisionObjectMessage.NAME,
+        fields = {
+            "header",
+            "pose",
+            "id",
+            "type",
+            "primitives",
+            "primitive_poses",
+            "meshes",
+            "mesh_poses",
+            "planes",
+            "plane_poses",
+            "subframe_names",
+            "subframe_poses",
+            "operation"
+        })
 public class CollisionObjectMessage implements Message {
 
     static final String NAME = "moveit_msgs/CollisionObject";
@@ -61,7 +77,7 @@ public class CollisionObjectMessage implements Message {
         MOVE,
     }
 
-    /** A header, used for interpreting the poses */
+    /** a header, used for interpreting the poses */
     public HeaderMessage header = new HeaderMessage();
 
     /**

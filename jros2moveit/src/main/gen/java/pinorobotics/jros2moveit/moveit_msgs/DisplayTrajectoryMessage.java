@@ -25,7 +25,9 @@ import java.util.Arrays;
 import java.util.Objects;
 
 /** Definition for moveit_msgs/DisplayTrajectory */
-@MessageMetadata(name = DisplayTrajectoryMessage.NAME, md5sum = "41936b74e168ba754279ae683ce3f121")
+@MessageMetadata(
+        name = DisplayTrajectoryMessage.NAME,
+        fields = {"model_id", "trajectory", "trajectory_start"})
 public class DisplayTrajectoryMessage implements Message {
 
     static final String NAME = "moveit_msgs/DisplayTrajectory";

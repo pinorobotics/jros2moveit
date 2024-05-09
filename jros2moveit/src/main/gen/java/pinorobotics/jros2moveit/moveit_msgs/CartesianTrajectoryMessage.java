@@ -27,7 +27,9 @@ import java.util.Objects;
 import pinorobotics.jrosmoveit.moveit_msgs.CartesianTrajectoryPointMessage;
 
 /** Definition for moveit_msgs/CartesianTrajectory */
-@MessageMetadata(name = CartesianTrajectoryMessage.NAME)
+@MessageMetadata(
+        name = CartesianTrajectoryMessage.NAME,
+        fields = {"header", "tracked_frame", "points"})
 public class CartesianTrajectoryMessage implements Message {
 
     static final String NAME = "moveit_msgs/CartesianTrajectory";

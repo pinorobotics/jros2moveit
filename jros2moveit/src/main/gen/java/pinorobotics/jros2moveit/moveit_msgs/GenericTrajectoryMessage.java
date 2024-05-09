@@ -26,11 +26,14 @@ import java.util.Arrays;
 import java.util.Objects;
 
 /**
- * Definition for moveit_msgs/GenericTrajectory A generic trajectory message that may either encode
- * a joint- or cartesian-space trajectory, or both # Trajectories encoded in this message are
- * considered semantically equivalent
+ * Definition for moveit_msgs/GenericTrajectory
+ *
+ * <p>A generic trajectory message that may either encode a joint- or cartesian-space trajectory, or
+ * both Trajectories encoded in this message are considered semantically equivalent
  */
-@MessageMetadata(name = GenericTrajectoryMessage.NAME)
+@MessageMetadata(
+        name = GenericTrajectoryMessage.NAME,
+        fields = {"header", "joint_trajectory", "cartesian_trajectory"})
 public class GenericTrajectoryMessage implements Message {
 
     static final String NAME = "moveit_msgs/GenericTrajectory";

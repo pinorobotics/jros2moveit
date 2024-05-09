@@ -23,9 +23,7 @@ import id.xfunction.XJson;
 import java.util.Objects;
 
 /** Definition for moveit_msgs/ExecuteTrajectoryGoal */
-@MessageMetadata(
-        name = ExecuteTrajectoryGoalMessage.NAME,
-        md5sum = "054c09e62210d7faad2f9fffdad07b57")
+@MessageMetadata(name = ExecuteTrajectoryGoalMessage.NAME)
 public class ExecuteTrajectoryGoalMessage implements Message {
 
     static final String NAME = "moveit_msgs/ExecuteTrajectoryGoal";

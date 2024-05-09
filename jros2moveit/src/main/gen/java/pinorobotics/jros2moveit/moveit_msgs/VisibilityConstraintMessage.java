@@ -25,15 +25,27 @@ import id.xfunction.XJson;
 import java.util.Objects;
 
 /**
- * Definition for moveit_msgs/VisibilityConstraint The constraint is useful to maintain visibility
- * to a disc (the target) in a particular frame. # This disc forms the base of a visibiliy cone
- * whose tip is at the origin of the sensor. # Maintaining visibility is done by ensuring the robot
- * does not obstruct the visibility cone. # Note: # This constraint does NOT enforce minimum or
- * maximum distances between the sensor # and the target, nor does it enforce the target to be in
- * the field of view of # the sensor. A PositionConstraint can (and probably should) be used for
- * such purposes.
+ * Definition for moveit_msgs/VisibilityConstraint
+ *
+ * <p>The constraint is useful to maintain visibility to a disc (the target) in a particular frame.
+ * This disc forms the base of a visibiliy cone whose tip is at the origin of the sensor.
+ * Maintaining visibility is done by ensuring the robot does not obstruct the visibility cone. Note:
+ * This constraint does NOT enforce minimum or maximum distances between the sensor and the target,
+ * nor does it enforce the target to be in the field of view of the sensor. A PositionConstraint can
+ * (and probably should) be used for such purposes.
  */
-@MessageMetadata(name = VisibilityConstraintMessage.NAME)
+@MessageMetadata(
+        name = VisibilityConstraintMessage.NAME,
+        fields = {
+            "target_radius",
+            "target_pose",
+            "cone_sides",
+            "sensor_pose",
+            "max_view_angle",
+            "max_range_angle",
+            "sensor_view_direction",
+            "weight"
+        })
 public class VisibilityConstraintMessage implements Message {
 
     static final String NAME = "moveit_msgs/VisibilityConstraint";

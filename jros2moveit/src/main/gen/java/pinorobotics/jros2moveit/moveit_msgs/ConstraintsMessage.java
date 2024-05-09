@@ -26,10 +26,21 @@ import java.util.Objects;
 import pinorobotics.jrosmoveit.moveit_msgs.JointConstraintMessage;
 
 /**
- * Definition for moveit_msgs/Constraints This message contains a list of motion planning
- * constraints. # All constraints must be satisfied for a goal to be considered valid
+ * Definition for moveit_msgs/Constraints
+ *
+ * <p>This message contains a list of motion planning constraints. All constraints must be satisfied
+ * for a goal to be considered valid This message contains a list of motion planning constraints.
+ * All constraints must be satisfied for a goal to be considered valid
  */
-@MessageMetadata(name = ConstraintsMessage.NAME)
+@MessageMetadata(
+        name = ConstraintsMessage.NAME,
+        fields = {
+            "name",
+            "joint_constraints",
+            "position_constraints",
+            "orientation_constraints",
+            "visibility_constraints"
+        })
 public class ConstraintsMessage implements Message {
 
     static final String NAME = "moveit_msgs/Constraints";

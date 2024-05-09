@@ -35,6 +35,7 @@ module jros2moveit {
     requires jros2actionlib;
     requires jros2messages;
     requires id.xfunction;
+    requires jrosmessages;
 
     exports pinorobotics.jros2moveit;
     exports pinorobotics.jros2moveit.entities;
