@@ -89,7 +89,7 @@ public class GraspMessage implements Message {
      */
     public GripperTranslationMessage post_place_retreat = new GripperTranslationMessage();
 
-    /** the maximum contact force to use while grasping (<=0 to disable) */
+    /** the maximum contact force to use while grasping (&lt;=0 to disable) */
     public float max_contact_force;
 
     /**
