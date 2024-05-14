@@ -21,7 +21,8 @@
  * <p>For usage examples see <a href="http://pinoweb.freetzi.com/jrosmoveit">Documentation</a>
  *
  * @see <a href="http://pinoweb.freetzi.com/jrosmoveit">Documentation</a>
- * @see <a href="https://github.com/pinorobotics/jros2moveit/releases">Download</a>
+ * @see <a href=
+ *     "https://github.com/pinorobotics/jros2moveit/blob/main/jros2moveit/release/CHANGELOG.md">Releases</a>
  * @see <a href="https://github.com/pinorobotics/jros2moveit">GitHub repository</a>
  * @author aeon_flux aeon_flux@eclipso.ch
  */

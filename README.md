@@ -6,7 +6,7 @@ Java 17+
 
 # Download
 
-[Release versions](https://github.com/pinorobotics/jrosmoveit/releases)
+[Release versions](jros2moveit/release/CHANGELOG.md)
 
 Or you can add dependency to it as follows:
 
