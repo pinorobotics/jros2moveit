@@ -9,6 +9,8 @@ open module jros2moveit.tests {
     requires jros2client;
     requires jros2rviztools;
     requires jros2tf2;
+    requires jrosmessages.tests;
+    requires jros2messages;
 
     exports pinorobotics.jros2moveit.tests;
     exports pinorobotics.ros2robotstate.tests;
