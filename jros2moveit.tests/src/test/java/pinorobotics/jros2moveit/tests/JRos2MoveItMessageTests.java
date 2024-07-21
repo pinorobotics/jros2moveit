@@ -30,6 +30,8 @@ import id.jrosmessages.std_msgs.Int32Message;
 import id.jrosmessages.std_msgs.StringMessage;
 import id.jrosmessages.tests.MessageTests;
 import java.util.stream.Stream;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import pinorobotics.jros2moveit.moveit_msgs.PlanningOptionsMessage;
 import pinorobotics.jros2moveit.moveit_msgs.PlanningSceneMessage;
 import pinorobotics.jros2moveit.moveit_msgs.PlanningSceneWorldMessage;
@@ -173,5 +175,13 @@ public class JRos2MoveItMessageTests extends MessageTests {
                                 .withPlanOnly(true)
                                 .withReplanAttempts(new Int32Message().withData(2))
                                 .withLookAroundAttempts(new Int32Message().withData(123))));
+    }
+
+    @Test
+    public void test_PlanningOptionsMessage_equals() {
+        Assertions.assertTrue(new PlanningOptionsMessage().equals(new PlanningOptionsMessage()));
+        Assertions.assertFalse(
+                new PlanningOptionsMessage()
+                        .equals(new PlanningOptionsMessage().withPlanOnly(true)));
     }
 }
