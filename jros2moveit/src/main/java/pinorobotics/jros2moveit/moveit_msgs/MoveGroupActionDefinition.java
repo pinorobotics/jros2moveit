@@ -17,6 +17,7 @@
  */
 package pinorobotics.jros2moveit.moveit_msgs;
 
+import id.jrosmessages.MessageDescriptor;
 import pinorobotics.jros2actionlib.actionlib_msgs.Action2Definition;
 import pinorobotics.jros2actionlib.actionlib_msgs.Action2GetResultRequestMessage;
 import pinorobotics.jros2actionlib.actionlib_msgs.Action2GoalMessage;
@@ -29,17 +30,20 @@ public class MoveGroupActionDefinition
         implements Action2Definition<MoveGroupGoalMessage, MoveGroupResultMessage> {
 
     @Override
-    public Class<? extends Action2GoalMessage<MoveGroupGoalMessage>> getActionGoalMessage() {
-        return MoveGroupActionGoalMessage.class;
+    public MessageDescriptor<? extends Action2GoalMessage<MoveGroupGoalMessage>>
+            getActionGoalMessage() {
+        return new MessageDescriptor<>(MoveGroupActionGoalMessage.class);
     }
 
     @Override
-    public Class<? extends Action2ResultMessage<MoveGroupResultMessage>> getActionResultMessage() {
-        return MoveGroupActionResultMessage.class;
+    public MessageDescriptor<? extends Action2ResultMessage<MoveGroupResultMessage>>
+            getActionResultMessage() {
+        return new MessageDescriptor<>(MoveGroupActionResultMessage.class);
     }
 
     @Override
-    public Class<? extends Action2GetResultRequestMessage> getActionResultRequestMessage() {
-        return MoveGroupActionGetResultRequestMessage.class;
+    public MessageDescriptor<? extends Action2GetResultRequestMessage>
+            getActionResultRequestMessage() {
+        return new MessageDescriptor<>(MoveGroupActionGetResultRequestMessage.class);
     }
 }

@@ -17,6 +17,7 @@
  */
 package pinorobotics.jros2moveit.moveit_msgs;
 
+import id.jrosmessages.MessageDescriptor;
 import pinorobotics.jros2actionlib.actionlib_msgs.Action2Definition;
 import pinorobotics.jros2actionlib.actionlib_msgs.Action2GetResultRequestMessage;
 import pinorobotics.jros2actionlib.actionlib_msgs.Action2GoalMessage;
@@ -30,19 +31,20 @@ public class ExecuteTrajectoryActionDefinition
         implements Action2Definition<ExecuteTrajectoryGoalMessage, ExecuteTrajectoryResultMessage> {
 
     @Override
-    public Class<? extends Action2GoalMessage<ExecuteTrajectoryGoalMessage>>
+    public MessageDescriptor<? extends Action2GoalMessage<ExecuteTrajectoryGoalMessage>>
             getActionGoalMessage() {
-        return ExecuteTrajectoryActionGoalMessage.class;
+        return new MessageDescriptor<>(ExecuteTrajectoryActionGoalMessage.class);
     }
 
     @Override
-    public Class<? extends Action2ResultMessage<ExecuteTrajectoryResultMessage>>
+    public MessageDescriptor<? extends Action2ResultMessage<ExecuteTrajectoryResultMessage>>
             getActionResultMessage() {
-        return ExecuteTrajectoryActionResultMessage.class;
+        return new MessageDescriptor<>(ExecuteTrajectoryActionResultMessage.class);
     }
 
     @Override
-    public Class<? extends Action2GetResultRequestMessage> getActionResultRequestMessage() {
-        return ExecuteTrajectoryActionGetResultRequestMessage.class;
+    public MessageDescriptor<? extends Action2GetResultRequestMessage>
+            getActionResultRequestMessage() {
+        return new MessageDescriptor<>(ExecuteTrajectoryActionGetResultRequestMessage.class);
     }
 }

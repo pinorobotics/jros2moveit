@@ -47,6 +47,7 @@ public class ExecuteTrajectoryActionResultMessage
         return this;
     }
 
+    @Override
     public ExecuteTrajectoryActionResultMessage withResult(ExecuteTrajectoryResultMessage result) {
         this.result = result;
         return this;
@@ -78,5 +79,11 @@ public class ExecuteTrajectoryActionResultMessage
     @Override
     public ExecuteTrajectoryResultMessage getResult() {
         return result;
+    }
+
+    @Override
+    public Action2ResultMessage<ExecuteTrajectoryResultMessage> withStatus(StatusType status) {
+        this.status = (byte) status.ordinal();
+        return this;
     }
 }

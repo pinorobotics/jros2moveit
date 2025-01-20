@@ -69,4 +69,14 @@ public class MoveGroupActionGoalMessage implements Action2GoalMessage<MoveGroupG
                 "goal_id", goal_id,
                 "goal", goal);
     }
+
+    @Override
+    public MoveGroupGoalMessage getGoal() {
+        return goal;
+    }
+
+    @Override
+    public Action2GoalIdMessage getGoalId() {
+        return goal_id;
+    }
 }

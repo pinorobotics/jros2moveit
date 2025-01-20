@@ -45,6 +45,7 @@ public class MoveGroupActionResultMessage implements Action2ResultMessage<MoveGr
         return this;
     }
 
+    @Override
     public MoveGroupActionResultMessage withResult(MoveGroupResultMessage result) {
         this.result = result;
         return this;
@@ -76,5 +77,11 @@ public class MoveGroupActionResultMessage implements Action2ResultMessage<MoveGr
     @Override
     public MoveGroupResultMessage getResult() {
         return result;
+    }
+
+    @Override
+    public Action2ResultMessage<MoveGroupResultMessage> withStatus(StatusType status) {
+        this.status = (byte) status.ordinal();
+        return this;
     }
 }

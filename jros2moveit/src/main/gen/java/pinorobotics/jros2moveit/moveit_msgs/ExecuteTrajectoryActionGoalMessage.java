@@ -70,4 +70,14 @@ public class ExecuteTrajectoryActionGoalMessage
                 "goal_id", goal_id,
                 "goal", goal);
     }
+
+    @Override
+    public ExecuteTrajectoryGoalMessage getGoal() {
+        return goal;
+    }
+
+    @Override
+    public Action2GoalIdMessage getGoalId() {
+        return goal_id;
+    }
 }
