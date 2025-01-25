@@ -37,9 +37,17 @@ module jros2moveit {
     requires jros2messages;
     requires id.xfunction;
     requires jrosmessages;
+    requires com.fasterxml.jackson.dataformat.yaml;
+    requires com.fasterxml.jackson.databind;
+    requires com.fasterxml.jackson.module.paramnames;
 
     exports pinorobotics.jros2moveit;
     exports pinorobotics.jros2moveit.entities;
     exports pinorobotics.jros2moveit.moveit_msgs;
     exports pinorobotics.ros2robotstate;
+    exports pinorobotics.jros2moveit.moveit_config;
+    exports pinorobotics.jros2moveit.moveit_config.models;
+
+    opens pinorobotics.jros2moveit.moveit_config.models to
+            com.fasterxml.jackson.databind;
 }
