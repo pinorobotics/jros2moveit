@@ -36,8 +36,8 @@ public class MoveItConfigUtilsTest {
                         .isEmpty());
         Assertions.assertEquals(
                 """
-                MoveItConfig[initialPositions=InitialPositions[initialPositions={Joint_0=3.0815, Joint_1=3.0815, Joint_2=-2.3783, Joint_3=2.261, Joint_4=0.0}], ros2Controllers={dorna2_arm_controller=Ros2Controller[ros__parameters=RosParameters[joints=[Joint_0, Joint_1, Joint_2, Joint_3, Joint_4], commandInterfaces=[position], stateInterfaces=[position, velocity], updateRate=0]], controller_manager=Ros2Controller[ros__parameters=RosParameters[joints=null, commandInterfaces=null, stateInterfaces=null, updateRate=100]]}]
-                """
+MoveItConfig[initialPositions=InitialPositions[initialPositions={Joint_0=3.0815, Joint_1=3.0815, Joint_2=-2.3783, Joint_3=2.261, Joint_4=0.0}], ros2Controllers={dorna2_arm_controller=Ros2Controller[ros__parameters=RosParameters[joints=[Joint_0, Joint_1, Joint_2, Joint_3, Joint_4], commandInterfaces=[position], stateInterfaces=[position, velocity], updateRate=0]], controller_manager=Ros2Controller[ros__parameters=RosParameters[joints=null, commandInterfaces=null, stateInterfaces=null, updateRate=100]]}]
+"""
                         .strip(),
                 config.toString());
     }
