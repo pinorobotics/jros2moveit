@@ -44,6 +44,7 @@ module jros2moveit {
     exports pinorobotics.jros2moveit;
     exports pinorobotics.jros2moveit.entities;
     exports pinorobotics.jros2moveit.moveit_msgs;
+    exports pinorobotics.jros2moveit.moveit_msgs.humble;
     exports pinorobotics.ros2robotstate;
     exports pinorobotics.jros2moveit.moveit_config;
     exports pinorobotics.jros2moveit.moveit_config.models;

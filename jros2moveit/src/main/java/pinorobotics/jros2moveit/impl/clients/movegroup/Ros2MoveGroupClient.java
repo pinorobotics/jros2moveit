@@ -18,10 +18,10 @@
 package pinorobotics.jros2moveit.impl.clients.movegroup;
 
 import pinorobotics.jros2moveit.moveit_msgs.MoveGroupGoalMessage;
-import pinorobotics.jros2moveit.moveit_msgs.MoveGroupResultMessage;
 import pinorobotics.jros2moveit.moveit_msgs.PlanningOptionsMessage;
 import pinorobotics.jros2moveit.moveit_msgs.PlanningSceneMessage;
 import pinorobotics.jros2moveit.moveit_msgs.RobotStateMessage;
+import pinorobotics.jros2moveit.moveit_msgs.humble.MoveGroupResultMessage;
 import pinorobotics.jrosactionlib.JRosActionClient;
 import pinorobotics.jrosmoveit.impl.MotionRequest;
 import pinorobotics.jrosmoveit.impl.clients.movegroup.AbstractMoveGroupClient;

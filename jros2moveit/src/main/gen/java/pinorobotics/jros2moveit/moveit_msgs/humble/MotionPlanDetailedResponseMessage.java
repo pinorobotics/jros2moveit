@@ -15,7 +15,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package pinorobotics.jros2moveit.moveit_msgs;
+package pinorobotics.jros2moveit.moveit_msgs.humble;
 
 import id.jrosmessages.Message;
 import id.jrosmessages.MessageMetadata;
@@ -23,7 +23,8 @@ import id.jrosmessages.std_msgs.StringMessage;
 import id.xfunction.XJson;
 import java.util.Arrays;
 import java.util.Objects;
-import pinorobotics.jrosmoveit.moveit_msgs.MoveItErrorCodesMessage;
+import pinorobotics.jros2moveit.moveit_msgs.RobotStateMessage;
+import pinorobotics.jros2moveit.moveit_msgs.RobotTrajectoryMessage;
 
 /**
  * Definition for moveit_msgs/MotionPlanDetailedResponse

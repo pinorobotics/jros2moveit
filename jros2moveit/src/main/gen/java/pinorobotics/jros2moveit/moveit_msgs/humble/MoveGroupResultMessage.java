@@ -15,12 +15,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package pinorobotics.jros2moveit.moveit_msgs;
+package pinorobotics.jros2moveit.moveit_msgs.humble;
 
 import id.jrosmessages.Message;
 import id.jrosmessages.MessageMetadata;
 import id.xfunction.XJson;
 import java.util.Objects;
+import pinorobotics.jros2moveit.moveit_msgs.RobotStateMessage;
+import pinorobotics.jros2moveit.moveit_msgs.RobotTrajectoryMessage;
 import pinorobotics.jrosmoveit.entities.Plan;
 import pinorobotics.jrosmoveit.impl.clients.movegroup.MoveGroupResult;
 import pinorobotics.jrosmoveit.moveit_msgs.MoveItErrorCodesMessage;

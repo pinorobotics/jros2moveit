@@ -15,35 +15,36 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package pinorobotics.jros2moveit.moveit_msgs;
+package pinorobotics.jros2moveit.moveit_msgs.humble;
 
 import id.jrosmessages.MessageDescriptor;
 import pinorobotics.jros2actionlib.actionlib_msgs.Action2Definition;
 import pinorobotics.jros2actionlib.actionlib_msgs.Action2GetResultRequestMessage;
 import pinorobotics.jros2actionlib.actionlib_msgs.Action2GoalMessage;
 import pinorobotics.jros2actionlib.actionlib_msgs.Action2ResultMessage;
+import pinorobotics.jrosmoveit.moveit_msgs.ExecuteTrajectoryResultMessage;
 
 /**
  * @author aeon_flux aeon_flux@eclipso.ch
  */
-public class MoveGroupActionDefinition
-        implements Action2Definition<MoveGroupGoalMessage, MoveGroupResultMessage> {
+public class ExecuteTrajectoryActionDefinition
+        implements Action2Definition<ExecuteTrajectoryGoalMessage, ExecuteTrajectoryResultMessage> {
 
     @Override
-    public MessageDescriptor<? extends Action2GoalMessage<MoveGroupGoalMessage>>
+    public MessageDescriptor<? extends Action2GoalMessage<ExecuteTrajectoryGoalMessage>>
             getActionGoalMessage() {
-        return new MessageDescriptor<>(MoveGroupActionGoalMessage.class);
+        return new MessageDescriptor<>(ExecuteTrajectoryActionGoalMessage.class);
     }
 
     @Override
-    public MessageDescriptor<? extends Action2ResultMessage<MoveGroupResultMessage>>
+    public MessageDescriptor<? extends Action2ResultMessage<ExecuteTrajectoryResultMessage>>
             getActionResultMessage() {
-        return new MessageDescriptor<>(MoveGroupActionResultMessage.class);
+        return new MessageDescriptor<>(ExecuteTrajectoryActionResultMessage.class);
     }
 
     @Override
     public MessageDescriptor<? extends Action2GetResultRequestMessage>
             getActionResultRequestMessage() {
-        return new MessageDescriptor<>(MoveGroupActionGetResultRequestMessage.class);
+        return new MessageDescriptor<>(ExecuteTrajectoryActionGetResultRequestMessage.class);
     }
 }

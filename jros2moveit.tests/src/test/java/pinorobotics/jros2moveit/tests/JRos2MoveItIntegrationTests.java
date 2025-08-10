@@ -30,7 +30,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Order;
 import pinorobotics.jros2moveit.JRos2MoveItFactory;
-import pinorobotics.jros2moveit.moveit_msgs.MoveGroupResultMessage;
+import pinorobotics.jros2moveit.moveit_msgs.humble.MoveGroupResultMessage;
 import pinorobotics.jros2rviztools.JRos2RvizToolsFactory;
 import pinorobotics.jros2tf2.JRos2Tf2Factory;
 import pinorobotics.jros2tf2.tf2_msgs.LookupTransformResultMessage;

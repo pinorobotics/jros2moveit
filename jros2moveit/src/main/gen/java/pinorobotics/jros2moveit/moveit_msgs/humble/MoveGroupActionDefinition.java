@@ -15,36 +15,38 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package pinorobotics.jros2moveit.moveit_msgs;
+package pinorobotics.jros2moveit.moveit_msgs.humble;
 
 import id.jrosmessages.MessageDescriptor;
 import pinorobotics.jros2actionlib.actionlib_msgs.Action2Definition;
 import pinorobotics.jros2actionlib.actionlib_msgs.Action2GetResultRequestMessage;
 import pinorobotics.jros2actionlib.actionlib_msgs.Action2GoalMessage;
 import pinorobotics.jros2actionlib.actionlib_msgs.Action2ResultMessage;
-import pinorobotics.jrosmoveit.moveit_msgs.ExecuteTrajectoryResultMessage;
+import pinorobotics.jros2moveit.moveit_msgs.MoveGroupActionGetResultRequestMessage;
+import pinorobotics.jros2moveit.moveit_msgs.MoveGroupActionGoalMessage;
+import pinorobotics.jros2moveit.moveit_msgs.MoveGroupGoalMessage;
 
 /**
  * @author aeon_flux aeon_flux@eclipso.ch
  */
-public class ExecuteTrajectoryActionDefinition
-        implements Action2Definition<ExecuteTrajectoryGoalMessage, ExecuteTrajectoryResultMessage> {
+public class MoveGroupActionDefinition
+        implements Action2Definition<MoveGroupGoalMessage, MoveGroupResultMessage> {
 
     @Override
-    public MessageDescriptor<? extends Action2GoalMessage<ExecuteTrajectoryGoalMessage>>
+    public MessageDescriptor<? extends Action2GoalMessage<MoveGroupGoalMessage>>
             getActionGoalMessage() {
-        return new MessageDescriptor<>(ExecuteTrajectoryActionGoalMessage.class);
+        return new MessageDescriptor<>(MoveGroupActionGoalMessage.class);
     }
 
     @Override
-    public MessageDescriptor<? extends Action2ResultMessage<ExecuteTrajectoryResultMessage>>
+    public MessageDescriptor<? extends Action2ResultMessage<MoveGroupResultMessage>>
             getActionResultMessage() {
-        return new MessageDescriptor<>(ExecuteTrajectoryActionResultMessage.class);
+        return new MessageDescriptor<>(MoveGroupActionResultMessage.class);
     }
 
     @Override
     public MessageDescriptor<? extends Action2GetResultRequestMessage>
             getActionResultRequestMessage() {
-        return new MessageDescriptor<>(ExecuteTrajectoryActionGetResultRequestMessage.class);
+        return new MessageDescriptor<>(MoveGroupActionGetResultRequestMessage.class);
     }
 }

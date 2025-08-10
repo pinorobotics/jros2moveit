@@ -17,8 +17,8 @@
  */
 package pinorobotics.jros2moveit.impl.clients.executetrajectory;
 
-import pinorobotics.jros2moveit.moveit_msgs.ExecuteTrajectoryGoalMessage;
-import pinorobotics.jros2moveit.moveit_msgs.MoveGroupResultMessage;
+import pinorobotics.jros2moveit.moveit_msgs.humble.ExecuteTrajectoryGoalMessage;
+import pinorobotics.jros2moveit.moveit_msgs.humble.MoveGroupResultMessage;
 import pinorobotics.jrosactionlib.JRosActionClient;
 import pinorobotics.jrosmoveit.impl.clients.executetrajectory.AbstractExecuteTrajectoryClient;
 import pinorobotics.jrosmoveit.moveit_msgs.ExecuteTrajectoryResultMessage;
