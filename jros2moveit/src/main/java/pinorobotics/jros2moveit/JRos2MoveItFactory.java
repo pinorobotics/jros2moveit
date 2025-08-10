@@ -18,7 +18,7 @@
 package pinorobotics.jros2moveit;
 
 import id.jros2client.JRos2Client;
-import pinorobotics.jros2actionlib.JRos2ActionFactory;
+import pinorobotics.jros2actionlib.JRos2ActionLibFactory;
 import pinorobotics.jros2moveit.moveit_msgs.ExecuteTrajectoryActionDefinition;
 import pinorobotics.jros2moveit.moveit_msgs.MoveGroupActionDefinition;
 import pinorobotics.jrosmoveit.impl.JRosMoveItConstants;
@@ -38,10 +38,10 @@ public class JRos2MoveItFactory {
      */
     public JRos2MoveIt createMoveItClient(JRos2Client client, String groupName, RobotModel model) {
         var moveGroup =
-                new JRos2ActionFactory()
+                new JRos2ActionLibFactory()
                         .createClient(client, new MoveGroupActionDefinition(), "/move_action");
         var executeTrajectory =
-                new JRos2ActionFactory()
+                new JRos2ActionLibFactory()
                         .createClient(
                                 client,
                                 new ExecuteTrajectoryActionDefinition(),
