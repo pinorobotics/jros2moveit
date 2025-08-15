@@ -21,12 +21,13 @@ import id.jrosmessages.Message;
 import id.jrosmessages.MessageMetadata;
 import id.xfunction.XJson;
 import java.util.Objects;
+import pinorobotics.jrosmoveit.impl.clients.movegroup.MoveGroupGoal;
 
 /** Definition for moveit_msgs/MoveGroupGoal */
 @MessageMetadata(
         name = MoveGroupGoalMessage.NAME,
         fields = {"request", "planning_options"})
-public class MoveGroupGoalMessage implements Message {
+public class MoveGroupGoalMessage implements MoveGroupGoal, Message {
 
     static final String NAME = "moveit_msgs/MoveGroupGoal";
 

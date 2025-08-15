@@ -22,10 +22,11 @@ import id.jrosmessages.MessageMetadata;
 import id.xfunction.XJson;
 import java.util.Objects;
 import pinorobotics.jros2moveit.moveit_msgs.RobotTrajectoryMessage;
+import pinorobotics.jrosmoveit.impl.clients.executetrajectory.ExecuteTrajectoryGoal;
 
 /** Definition for moveit_msgs/ExecuteTrajectoryGoal */
 @MessageMetadata(name = ExecuteTrajectoryGoalMessage.NAME)
-public class ExecuteTrajectoryGoalMessage implements Message {
+public class ExecuteTrajectoryGoalMessage implements ExecuteTrajectoryGoal, Message {
 
     static final String NAME = "moveit_msgs/ExecuteTrajectoryGoal";
 

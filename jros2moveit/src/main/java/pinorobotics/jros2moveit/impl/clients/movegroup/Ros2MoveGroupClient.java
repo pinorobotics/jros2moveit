@@ -21,17 +21,18 @@ import pinorobotics.jros2moveit.moveit_msgs.MoveGroupGoalMessage;
 import pinorobotics.jros2moveit.moveit_msgs.PlanningOptionsMessage;
 import pinorobotics.jros2moveit.moveit_msgs.PlanningSceneMessage;
 import pinorobotics.jros2moveit.moveit_msgs.RobotStateMessage;
-import pinorobotics.jros2moveit.moveit_msgs.humble.MoveGroupResultMessage;
 import pinorobotics.jrosactionlib.JRosActionClient;
 import pinorobotics.jrosmoveit.impl.MotionRequest;
 import pinorobotics.jrosmoveit.impl.clients.movegroup.AbstractMoveGroupClient;
+import pinorobotics.jrosmoveit.impl.clients.movegroup.MoveGroupGoal;
+import pinorobotics.jrosmoveit.impl.clients.movegroup.MoveGroupResult;
 import pinorobotics.robotstate.RobotModel;
 
 /**
  * @author aeon_flux aeon_flux@eclipso.ch
  */
-public class Ros2MoveGroupClient
-        extends AbstractMoveGroupClient<MoveGroupGoalMessage, MoveGroupResultMessage> {
+public class Ros2MoveGroupClient<G extends MoveGroupGoal, R extends MoveGroupResult>
+        extends AbstractMoveGroupClient<G, R> {
 
     private MotionPlanRequestFactory motionRequestFactory;
     private MoveGroupGoalMessage moveGroupGoal =
@@ -48,19 +49,16 @@ public class Ros2MoveGroupClient
                                                                     .withIsDiff(true))));
 
     public Ros2MoveGroupClient(
-            JRosActionClient<MoveGroupGoalMessage, MoveGroupResultMessage> moveGroupActionClient,
-            String groupName,
-            RobotModel model) {
+            JRosActionClient<G, R> moveGroupActionClient, String groupName, RobotModel model) {
         super(moveGroupActionClient);
         motionRequestFactory = new MotionPlanRequestFactory(groupName, model);
     }
 
     @Override
-    protected MoveGroupGoalMessage createGoalRequest(
-            boolean planOnly, MotionRequest motionRequest) {
+    protected G createGoalRequest(boolean planOnly, MotionRequest motionRequest) {
         moveGroupGoal.planning_options.plan_only = planOnly;
         var request = motionRequestFactory.populateMotionPlanRequest(motionRequest);
         moveGroupGoal.withRequest(request);
-        return moveGroupGoal;
+        return (G) moveGroupGoal;
     }
 }

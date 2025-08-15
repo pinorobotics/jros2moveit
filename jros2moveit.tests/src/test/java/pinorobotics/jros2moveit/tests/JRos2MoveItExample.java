@@ -18,6 +18,7 @@
 package pinorobotics.jros2moveit.tests;
 
 import id.jros2client.*;
+import id.jrosclient.RosRelease;
 import id.jrosmessages.geometry_msgs.*;
 import pinorobotics.jros2moveit.*;
 import pinorobotics.robotstate.*;
@@ -33,7 +34,11 @@ public class JRos2MoveItExample {
         try (var client = new JRos2ClientFactory().createClient(configBuilder.build()); ) {
             var moveIt =
                     new JRos2MoveItFactory()
-                            .createMoveItClient(client, "panda_arm", new RobotModel("world"));
+                            .createMoveItClient(
+                                    client,
+                                    RosRelease.ROS2_HUMBLE,
+                                    "panda_arm",
+                                    new RobotModel("world"));
             var targetPose =
                     new PoseMessage()
                             .withPosition(new PointMessage(0.28, -0.2, 0.5))

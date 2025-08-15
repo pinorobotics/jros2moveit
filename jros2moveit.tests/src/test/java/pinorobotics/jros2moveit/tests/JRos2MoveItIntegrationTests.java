@@ -19,6 +19,7 @@ package pinorobotics.jros2moveit.tests;
 
 import id.jros2client.JRos2Client;
 import id.jros2client.JRos2ClientFactory;
+import id.jrosclient.RosRelease;
 import id.jrosmessages.JRosMessagesTransformer;
 import id.jrosmessages.geometry_msgs.PoseMessage;
 import id.jrosmessages.std_msgs.StringMessage;
@@ -92,7 +93,8 @@ public class JRos2MoveItIntegrationTests
     @Override
     protected JRosMoveIt<MoveGroupResultMessage> createMoveIt(String groupName, RobotModel model) {
         return new JRos2MoveItFactory()
-                .createMoveItClient(client, "panda_arm", new RobotModel(BASE_FRAME));
+                .createMoveItClient(
+                        client, RosRelease.ROS2_HUMBLE, "panda_arm", new RobotModel(BASE_FRAME));
     }
 
     @Override

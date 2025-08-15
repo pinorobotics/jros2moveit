@@ -19,12 +19,13 @@ package pinorobotics.jros2moveit;
 
 import pinorobotics.jros2moveit.impl.clients.executetrajectory.Ros2ExecuteTrajectoryClient;
 import pinorobotics.jros2moveit.impl.clients.movegroup.Ros2MoveGroupClient;
-import pinorobotics.jros2moveit.moveit_msgs.MoveGroupGoalMessage;
-import pinorobotics.jros2moveit.moveit_msgs.humble.ExecuteTrajectoryGoalMessage;
 import pinorobotics.jros2moveit.moveit_msgs.humble.MoveGroupResultMessage;
 import pinorobotics.jrosactionlib.JRosActionClient;
 import pinorobotics.jrosmoveit.impl.AbstractJRosMoveIt;
-import pinorobotics.jrosmoveit.moveit_msgs.ExecuteTrajectoryResultMessage;
+import pinorobotics.jrosmoveit.impl.clients.executetrajectory.ExecuteTrajectoryGoal;
+import pinorobotics.jrosmoveit.impl.clients.executetrajectory.ExecuteTrajectoryResult;
+import pinorobotics.jrosmoveit.impl.clients.movegroup.MoveGroupGoal;
+import pinorobotics.jrosmoveit.impl.clients.movegroup.MoveGroupResult;
 import pinorobotics.robotstate.RobotModel;
 
 /**
@@ -36,13 +37,13 @@ public class JRos2MoveIt extends AbstractJRosMoveIt<MoveGroupResultMessage> {
 
     /** Creates a new instance of the client */
     public JRos2MoveIt(
-            JRosActionClient<MoveGroupGoalMessage, MoveGroupResultMessage> moveGroupActionClient,
-            JRosActionClient<ExecuteTrajectoryGoalMessage, ExecuteTrajectoryResultMessage>
+            JRosActionClient<MoveGroupGoal, MoveGroupResult> moveGroupActionClient,
+            JRosActionClient<ExecuteTrajectoryGoal, ExecuteTrajectoryResult>
                     executeTrajectoryActionClient,
             String groupName,
             RobotModel model) {
         super(
                 new Ros2MoveGroupClient(moveGroupActionClient, groupName, model),
-                new Ros2ExecuteTrajectoryClient(executeTrajectoryActionClient));
+                new Ros2ExecuteTrajectoryClient<>(executeTrajectoryActionClient));
     }
 }

@@ -22,24 +22,25 @@ import pinorobotics.jros2actionlib.actionlib_msgs.Action2Definition;
 import pinorobotics.jros2actionlib.actionlib_msgs.Action2GetResultRequestMessage;
 import pinorobotics.jros2actionlib.actionlib_msgs.Action2GoalMessage;
 import pinorobotics.jros2actionlib.actionlib_msgs.Action2ResultMessage;
-import pinorobotics.jrosmoveit.moveit_msgs.ExecuteTrajectoryResultMessage;
+import pinorobotics.jrosmoveit.impl.clients.executetrajectory.ExecuteTrajectoryGoal;
+import pinorobotics.jrosmoveit.impl.clients.executetrajectory.ExecuteTrajectoryResult;
 
 /**
  * @author aeon_flux aeon_flux@eclipso.ch
  */
 public class ExecuteTrajectoryActionDefinition
-        implements Action2Definition<ExecuteTrajectoryGoalMessage, ExecuteTrajectoryResultMessage> {
+        implements Action2Definition<ExecuteTrajectoryGoal, ExecuteTrajectoryResult> {
 
     @Override
-    public MessageDescriptor<? extends Action2GoalMessage<ExecuteTrajectoryGoalMessage>>
+    public MessageDescriptor<? extends Action2GoalMessage<ExecuteTrajectoryGoal>>
             getActionGoalMessage() {
-        return new MessageDescriptor<>(ExecuteTrajectoryActionGoalMessage.class);
+        return new MessageDescriptor(ExecuteTrajectoryActionGoalMessage.class);
     }
 
     @Override
-    public MessageDescriptor<? extends Action2ResultMessage<ExecuteTrajectoryResultMessage>>
+    public MessageDescriptor<? extends Action2ResultMessage<ExecuteTrajectoryResult>>
             getActionResultMessage() {
-        return new MessageDescriptor<>(ExecuteTrajectoryActionResultMessage.class);
+        return new MessageDescriptor(ExecuteTrajectoryActionResultMessage.class);
     }
 
     @Override

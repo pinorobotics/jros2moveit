@@ -17,32 +17,36 @@
  */
 package pinorobotics.jros2moveit.impl.clients.executetrajectory;
 
+import pinorobotics.jros2moveit.moveit_msgs.humble.ExecuteTrajectoryActionGoalMessage;
 import pinorobotics.jros2moveit.moveit_msgs.humble.ExecuteTrajectoryGoalMessage;
 import pinorobotics.jros2moveit.moveit_msgs.humble.MoveGroupResultMessage;
 import pinorobotics.jrosactionlib.JRosActionClient;
+import pinorobotics.jrosactionlib.msgs.ActionDefinition;
 import pinorobotics.jrosmoveit.impl.clients.executetrajectory.AbstractExecuteTrajectoryClient;
-import pinorobotics.jrosmoveit.moveit_msgs.ExecuteTrajectoryResultMessage;
+import pinorobotics.jrosmoveit.impl.clients.executetrajectory.ExecuteTrajectoryGoal;
+import pinorobotics.jrosmoveit.impl.clients.executetrajectory.ExecuteTrajectoryResult;
 
 /**
  * @author aeon_flux aeon_flux@eclipso.ch
  */
-public class Ros2ExecuteTrajectoryClient
-        extends AbstractExecuteTrajectoryClient<
-                MoveGroupResultMessage,
-                ExecuteTrajectoryGoalMessage,
-                ExecuteTrajectoryResultMessage> {
+public class Ros2ExecuteTrajectoryClient<
+                G extends ExecuteTrajectoryGoal, R extends ExecuteTrajectoryResult>
+        extends AbstractExecuteTrajectoryClient<MoveGroupResultMessage, G, R> {
 
-    public Ros2ExecuteTrajectoryClient(
-            JRosActionClient<ExecuteTrajectoryGoalMessage, ExecuteTrajectoryResultMessage>
-                    executeTrajectoryActionClient) {
+    private ActionDefinition<?, G, R> actionDefinition;
+
+    public Ros2ExecuteTrajectoryClient(JRosActionClient<G, R> executeTrajectoryActionClient) {
         super(executeTrajectoryActionClient);
+        this.actionDefinition = executeTrajectoryActionClient.getActionDefinition();
     }
 
     @Override
-    protected ExecuteTrajectoryGoalMessage createExecuteTrajectoryRequest(
-            MoveGroupResultMessage plan) {
-        var goal = new ExecuteTrajectoryGoalMessage();
-        goal.trajectory = plan.planned_trajectory;
-        return goal;
+    protected G createExecuteTrajectoryRequest(MoveGroupResultMessage plan) {
+        var goalClass = actionDefinition.getActionGoalMessage().getMessageClass();
+        if (goalClass.isAssignableFrom(ExecuteTrajectoryActionGoalMessage.class)) {
+            var goal = new ExecuteTrajectoryGoalMessage();
+            goal.trajectory = plan.planned_trajectory;
+            return (G) goal;
+        } else throw new UnsupportedOperationException("" + actionDefinition);
     }
 }
