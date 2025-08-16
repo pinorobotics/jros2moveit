@@ -19,8 +19,8 @@ package pinorobotics.jros2moveit;
 
 import pinorobotics.jros2moveit.impl.clients.executetrajectory.Ros2ExecuteTrajectoryClient;
 import pinorobotics.jros2moveit.impl.clients.movegroup.Ros2MoveGroupClient;
-import pinorobotics.jros2moveit.moveit_msgs.humble.MoveGroupResultMessage;
 import pinorobotics.jrosactionlib.JRosActionClient;
+import pinorobotics.jrosmoveit.entities.Plan;
 import pinorobotics.jrosmoveit.impl.AbstractJRosMoveIt;
 import pinorobotics.jrosmoveit.impl.clients.executetrajectory.ExecuteTrajectoryGoal;
 import pinorobotics.jrosmoveit.impl.clients.executetrajectory.ExecuteTrajectoryResult;
@@ -33,7 +33,7 @@ import pinorobotics.robotstate.RobotModel;
  *
  * @author aeon_flux aeon_flux@eclipso.ch
  */
-public class JRos2MoveIt extends AbstractJRosMoveIt<MoveGroupResultMessage> {
+public class JRos2MoveIt<P extends Plan> extends AbstractJRosMoveIt<P> {
 
     /** Creates a new instance of the client */
     public JRos2MoveIt(

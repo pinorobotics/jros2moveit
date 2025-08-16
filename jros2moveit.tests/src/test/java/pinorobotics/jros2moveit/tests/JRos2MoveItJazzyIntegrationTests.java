@@ -30,8 +30,9 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.condition.EnabledIfEnvironmentVariable;
 import pinorobotics.jros2moveit.JRos2MoveItFactory;
-import pinorobotics.jros2moveit.moveit_msgs.humble.MoveGroupResultMessage;
+import pinorobotics.jros2moveit.moveit_msgs.MoveGroupResultMessage;
 import pinorobotics.jros2rviztools.JRos2RvizToolsFactory;
 import pinorobotics.jros2tf2.JRos2Tf2Factory;
 import pinorobotics.jros2tf2.tf2_msgs.LookupTransformResultMessage;
@@ -47,7 +48,8 @@ import pinorobotics.ros2robotstate.Ros2RobotStateMonitor;
  * @author aeon_flux aeon_flux@eclipso.ch
  */
 @Order(2)
-public class JRos2MoveItIntegrationTests
+@EnabledIfEnvironmentVariable(named = "ROS_DISTRO", matches = "jazzy")
+public class JRos2MoveItJazzyIntegrationTests
         extends AbstractJRosMoveItIT<LookupTransformResultMessage, MoveGroupResultMessage> {
 
     private static final String BASE_FRAME = "world";
@@ -94,7 +96,7 @@ public class JRos2MoveItIntegrationTests
     protected JRosMoveIt<MoveGroupResultMessage> createMoveIt(String groupName, RobotModel model) {
         return new JRos2MoveItFactory()
                 .createMoveItClient(
-                        client, RosRelease.ROS2_HUMBLE, "panda_arm", new RobotModel(BASE_FRAME));
+                        client, RosRelease.ROS2_JAZZY, "panda_arm", new RobotModel(BASE_FRAME));
     }
 
     @Override

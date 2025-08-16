@@ -22,8 +22,7 @@ import id.jrosclient.RosRelease;
 import id.jrosclient.RosVersion;
 import id.xfunction.Preconditions;
 import pinorobotics.jros2actionlib.JRos2ActionLibFactory;
-import pinorobotics.jros2moveit.moveit_msgs.humble.ExecuteTrajectoryActionDefinition;
-import pinorobotics.jros2moveit.moveit_msgs.humble.MoveGroupActionDefinition;
+import pinorobotics.jrosmoveit.entities.Plan;
 import pinorobotics.jrosmoveit.impl.JRosMoveItConstants;
 import pinorobotics.robotstate.RobotModel;
 
@@ -39,27 +38,44 @@ public class JRos2MoveItFactory {
      *
      * @param client ROS2 client
      */
-    public JRos2MoveIt createMoveItClient(
+    public <P extends Plan> JRos2MoveIt<P> createMoveItClient(
             JRos2Client client, RosRelease rosRelease, String groupName, RobotModel model) {
         Preconditions.equals(RosVersion.ROS2, rosRelease.getVersion(), "ROS2 release required");
+        String actionServerName = "/move_action";
         var moveGroup =
-                new JRos2ActionLibFactory()
-                        .createClient(
-                                client,
-                                switch (rosRelease) {
-                                    case ROS2_HUMBLE -> new MoveGroupActionDefinition();
-                                    default -> new MoveGroupActionDefinition();
-                                },
-                                "/move_action");
+                switch (rosRelease) {
+                    case ROS2_HUMBLE ->
+                            new JRos2ActionLibFactory()
+                                    .createClient(
+                                            client,
+                                            new pinorobotics.jros2moveit.moveit_msgs.humble
+                                                    .MoveGroupActionDefinition(),
+                                            actionServerName);
+                    default ->
+                            new JRos2ActionLibFactory()
+                                    .createClient(
+                                            client,
+                                            new pinorobotics.jros2moveit.moveit_msgs
+                                                    .MoveGroupActionDefinition(),
+                                            actionServerName);
+                };
         var executeTrajectory =
-                new JRos2ActionLibFactory()
-                        .createClient(
-                                client,
-                                switch (rosRelease) {
-                                    case ROS2_HUMBLE -> new ExecuteTrajectoryActionDefinition();
-                                    default -> new ExecuteTrajectoryActionDefinition();
-                                },
-                                JRosMoveItConstants.EXECUTE_TRAJECTORY_ACTION_NAME);
+                switch (rosRelease) {
+                    case ROS2_HUMBLE ->
+                            new JRos2ActionLibFactory()
+                                    .createClient(
+                                            client,
+                                            new pinorobotics.jros2moveit.moveit_msgs.humble
+                                                    .ExecuteTrajectoryActionDefinition(),
+                                            JRosMoveItConstants.EXECUTE_TRAJECTORY_ACTION_NAME);
+                    default ->
+                            new JRos2ActionLibFactory()
+                                    .createClient(
+                                            client,
+                                            new pinorobotics.jros2moveit.moveit_msgs
+                                                    .ExecuteTrajectoryActionDefinition(),
+                                            JRosMoveItConstants.EXECUTE_TRAJECTORY_ACTION_NAME);
+                };
         return new JRos2MoveIt(moveGroup, executeTrajectory, groupName, model);
     }
 }
