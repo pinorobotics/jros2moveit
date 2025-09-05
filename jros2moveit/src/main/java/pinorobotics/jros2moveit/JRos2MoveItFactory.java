@@ -18,8 +18,8 @@
 package pinorobotics.jros2moveit;
 
 import id.jros2client.JRos2Client;
-import id.jrosclient.RosRelease;
-import id.jrosclient.RosVersion;
+import id.jroscommon.RosRelease;
+import id.jroscommon.RosVersion;
 import id.xfunction.Preconditions;
 import pinorobotics.jros2actionlib.JRos2ActionLibFactory;
 import pinorobotics.jrosmoveit.entities.Plan;
