@@ -22,6 +22,7 @@ import id.jroscommon.RosRelease;
 import id.jroscommon.RosVersion;
 import id.xfunction.Preconditions;
 import pinorobotics.jros2actionlib.JRos2ActionLibFactory;
+import pinorobotics.jros2moveit.impl.JRos2MoveItImpl;
 import pinorobotics.jrosmoveit.entities.Plan;
 import pinorobotics.jrosmoveit.impl.JRosMoveItConstants;
 import pinorobotics.robotstate.RobotModel;
@@ -76,6 +77,6 @@ public class JRos2MoveItFactory {
                                                     .ExecuteTrajectoryActionDefinition(),
                                             JRosMoveItConstants.EXECUTE_TRAJECTORY_ACTION_NAME);
                 };
-        return new JRos2MoveIt(moveGroup, executeTrajectory, groupName, model);
+        return new JRos2MoveItImpl(moveGroup, executeTrajectory, groupName, model);
     }
 }

@@ -1,4 +1,4 @@
-**jros2moveit** - Java module which allows to interact with [MoveIt](https://moveit.ros.org/) in ROS2. It allows to set target pose for the robot, plan trajectory and execute it. With **jros1moveit** you can interact with [MoveIt](https://moveit.ros.org/) from Java directly and manipulate variety of robotic arms.
+**jros2moveit** - Java module which allows to interact with [MoveIt](https://moveit.ros.org/) in ROS2.
 
 # Requirements
 
