@@ -23,19 +23,20 @@ import id.jroscommon.RosVersion;
 import id.xfunction.Preconditions;
 import pinorobotics.jros2actionlib.JRos2ActionLibFactory;
 import pinorobotics.jros2moveit.impl.JRos2MoveItImpl;
+import pinorobotics.jros2moveit.impl.JRos2MoveItServoClientImpl;
 import pinorobotics.jrosmoveit.entities.Plan;
 import pinorobotics.jrosmoveit.impl.JRosMoveItConstants;
 import pinorobotics.robotstate.RobotModel;
 
 /**
- * Factory methods for {@link JRos2MoveIt}
+ * Factory methods for MoveIt clients
  *
  * @author aeon_flux aeon_flux@eclipso.ch
  */
 public class JRos2MoveItFactory {
 
     /**
-     * Creates a new instance of the client which will interact with MoveIt
+     * Create a new instance of the client which will interact with MoveIt
      *
      * @param client ROS2 client
      */
@@ -78,5 +79,16 @@ public class JRos2MoveItFactory {
                                             JRosMoveItConstants.EXECUTE_TRAJECTORY_ACTION_NAME);
                 };
         return new JRos2MoveItImpl(moveGroup, executeTrajectory, groupName, model);
+    }
+
+    /**
+     * Create a new instance of the client which will interact with MoveIt Servo
+     *
+     * @param client ROS2 client
+     */
+    public JRos2MoveItServoClient createMoveItServoClient(
+            JRos2Client client, RosRelease rosRelease) {
+        Preconditions.equals(RosVersion.ROS2, rosRelease.getVersion(), "ROS2 release required");
+        return new JRos2MoveItServoClientImpl(client, rosRelease);
     }
 }

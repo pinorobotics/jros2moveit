@@ -41,6 +41,7 @@ module jros2moveit {
     requires com.fasterxml.jackson.databind;
     requires com.fasterxml.jackson.module.paramnames;
     requires jrosservices;
+    requires jros2services;
 
     exports pinorobotics.jros2moveit;
     exports pinorobotics.jros2moveit.entities;

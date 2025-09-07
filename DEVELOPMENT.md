@@ -23,6 +23,7 @@ gradle eclipse
 - Update [Android dependencies](android/gradle.properties) and run `gradle clean build -b android/build.gradle`
 - Close version in gradle.properties
 - Run `gradle clean build javadoc`
+- Test `teleops`
 - Publish
 - Open next SNAPSHOT version
 - Update [CHANGELOG](jros2moveit/release/CHANGELOG.md) with new release (for changelog generation use `git log --format=%s`)
